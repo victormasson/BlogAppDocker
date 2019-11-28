@@ -1,0 +1,18 @@
+version: "3"
+services:
+  myblog:
+    build:
+      context: ./BlogAppApi
+    ports:
+      - "8080:80"
+    volumes:
+      - blogdata:/usr/share/docker/blog/dotnet/
+    networks:
+      - blognetwork
+    environment:
+volumes:
+  blogdata:
+    driver: local
+networks:
+  blognetwork:
+    driver: bridge
